@@ -14,10 +14,12 @@ jobs:
         if: github.event_name == 'issues'
         uses: actions-ecosystem/action-add-assignees@v1
         with:
+          github_token: ${{ secrets.ORG_PAT }}
           assignees: ${{ github.event.issue.user.login }}
 
       - name: Assign PR author
         if: github.event_name == 'pull_request'
         uses: actions-ecosystem/action-add-assignees@v1
         with:
+          github_token: ${{ secrets.ORG_PAT }}
           assignees: ${{ github.event.pull_request.user.login }}
